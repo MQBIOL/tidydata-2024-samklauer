@@ -137,8 +137,10 @@ Final_join <- function(csvTitle1, csvTitle2){
   return(fluorometer)
 }
 
+#Use the final function to take in the two original datasets and output the tidy
+#combined dataset in csv format
 Tidy_dataset <- Final_join(
-  "/Users/samklauer/Desktop/QBIO7006/210309_flourometer_readings.csv",
-  '/Users/samklauer/Desktop/QBIO7006/210309__Experiment_PlateLayout.xlsx'
+  "/Users/samklauer/Documents/GitHub/tidydata-2024-samklauer/Data/210309_flourometer_readings.csv",
+  '/Users/samklauer/Documents/GitHub/tidydata-2024-samklauer/Data/210309__Experiment_PlateLayout.xlsx'
   )  
-  
+write.csv(Tidy_dataset, "Snake_Venom_Assay.csv")
