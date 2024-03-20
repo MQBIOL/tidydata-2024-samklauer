@@ -4,7 +4,8 @@ library(dplyr)
 library(stringi)
 library(readxl)
 
-# reads in dataframe of well time results, 
+
+#This function reads in the dataframe of flourometer readings, 
 #removes na columns from outside the well range and removes final column that
 #contains information outside the scope of interest and renames the one column 
 #we will not alter. Also removes the blank rows
@@ -14,13 +15,12 @@ Venom_start<- function(csvTitle) {
   z <- z%>%
     select(-contains("X."))
   colnames(z)[1]<- 'Time'
-  z <- subset(z, M.A1!= "") #possibly alter
+  z <- z[rowSums(is.na(z))!=ncol(z),] #possibly alter
   return(z)
 }
 
-#venom_data <- Venom_start("/Users/samklauer/Desktop/QBIO7006/210309_flourometer_readings.csv")
 
-#This function takes in the number of samples from each well location are taken
+#This function takes in the number of samples from each well location that are taken
 #over the entire time period, we will use this later to separate and tidy the data
 time<- function(z) {
   samples<- unique(z$Time)
@@ -28,9 +28,10 @@ time<- function(z) {
   sample<- length(samples)
   return(length(samples))
 }
-#time(venom_data)
 
-#This creates a list of the location of every single starting time in the data
+
+#This function creates a list of the location of every single starting time in the data.
+#This will also be used later to separate and tidy the data
 
 M1finder <- function(z){
   ind = 0
@@ -44,14 +45,15 @@ M1finder <- function(z){
   }
   return(M1list)
 }
-#M1 <- M1finder(venom_data)
-#as.numeric(M1[[1]])
 
-# This function takes our starting time and total samples functions and 
-#manipulates our data into a longer format where new columns that are each 
-#plate location are added
 
-long_venom <- function(csvTitle){
+#This function takes our starting time and total samples functions and 
+#manipulates our data into a wider format where new columns that are each 
+#plate location are added. It creates a new dataframe from the first set of 
+#values in each column then pulls every subsequent set from below and left joins
+#it to make a very wide dataframe that we can tidy
+
+wide_venom <- function(csvTitle){
   dat <- Venom_start(csvTitle)
   t <- time(dat)
   First <- M1finder(dat)
@@ -71,15 +73,15 @@ long_venom <- function(csvTitle){
   return(dat2)
 }
 
-#ven <- long_venom("/Users/samklauer/Desktop/QBIO7006/210309_flourometer_readings.csv")
 
 
-#This function uses the long_venom function and M1finder function in order to 
-#adjust the columnn names to what we want before final tidying steps. It then using stringi 
-#to remove any unwanted characters in the function.
+#This function uses the wide_venom function and M1finder function in order to 
+#adjust the columnn names to what we want before final tidying steps. It then uses 
+#stringi to remove any unwanted characters in the column names. Lastly, it uses
+#gsub so that the M's are removed from all values of our time column.
 
 correct_col <- function(csvTitle){
-  dat <- long_venom(csvTitle)
+  dat <- wide_venom(csvTitle)
   dat2 <- Venom_start(csvTitle)
   First <- M1finder(dat2)
   loc_list <- list()
@@ -98,32 +100,35 @@ correct_col <- function(csvTitle){
     c(' ',' ',' ',' '),
     vectorize = FALSE
   )
+  dat$Time <- gsub("M", "", dat$Time)
   return(dat)
 }
 
-#ven <- correct_col("/Users/samklauer/Desktop/QBIO7006/210309_flourometer_readings.csv")
 
-#This function tidies our data so that we can add the names of samples form the other data set.
-#This is also where we remove all unused wells. This is done at this late step so that this code works for any 
+#This function tidies our data so that we can add the names of samples 
+#from the other experiment plate layout dataset.
+#This is also where we remove all unused wells. 
+#This is done at this late step so that this code works for any 
 #amount of wells used. 
 
 Tidy_time <- function(csvTitle){
   data <- correct_col(csvTitle)
   data[2:length(data)] <- lapply(data[2:length(data)],as.numeric)
   data <- data[ , colSums(is.na(data))==0]
-  data <- pivot_longer(data, !'Time', names_to = 'well position', values_to = 'value')
+  data <- pivot_longer(data, !'Time', names_to = 'well position', 
+                       values_to = 'value')
   data$'well position'<- gsub(x = data$'well position', pattern = " ",
                                       replacement = "")
   return(data)
 }
 
-#ven <-Tidy_time("/Users/samklauer/Desktop/QBIO7006/210309_flourometer_readings.csv")
+
 
 
 #This function reads in the plate layout, tidies it and then unites its columns, 
-#so that it can be left joint to the fluorometer readings we have tidied. This
+#so that it can be left joint to the flourometer readings we have tidied.
 #We then arrange it so that every datapoint from a well position is together in the
-#data frame
+#data frame in time order.
 
 Final_join <- function(csvTitle1, csvTitle2){
   fluorometer <- Tidy_time(csvTitle1)
@@ -138,9 +143,9 @@ Final_join <- function(csvTitle1, csvTitle2){
 }
 
 #Use the final function to take in the two original datasets and output the tidy
-#combined dataset in csv format
+#combined dataset in csv format from all of the functions defined above
 Tidy_dataset <- Final_join(
-  "~/GitHub/tidydata-2024-samklauer/Raw Data/210309_flourometer_readings.csv",
-  '~/GitHub/tidydata-2024-samklauer/Raw Data/210309__Experiment_PlateLayout.xlsx'
+  "Raw Data/210309_flourometer_readings.csv",
+  'Raw Data/210309__Experiment_PlateLayout.xlsx'
   )  
 write.csv(Tidy_dataset, "Snake_Venom_Assay.csv")
