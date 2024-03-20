@@ -4,7 +4,7 @@ Project Information
 
 Data: Snake Venom Protein Activity Assay Data from 03/09/21*
 
-Authors: Abhinandan Chowdhury and Dr. Christina Zdenek, working in the group of A/Prof Bryan Fry
+Raw Data Authors: Abhinandan Chowdhury and Dr. Christina Zdenek, working in the group of A/Prof Bryan Fry
 
 Location: University of Queensland, QLD Australia 
 

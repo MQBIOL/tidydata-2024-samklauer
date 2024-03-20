@@ -4,7 +4,9 @@ Final Tidy Data
 
 Data: Snake Venom Protein Activity Assay Data from 03/09/21*
 
-Authors: Abhinandan Chowdhury and Dr. Christina Zdenek, working in the group of A/Prof Bryan Fry
+Raw Data Authors: Abhinandan Chowdhury and Dr. Christina Zdenek, working in the group of A/Prof Bryan Fry
+
+Author: Sam Klauer
 
 Location: University of Queensland, QLD Australia
 
@@ -28,7 +30,7 @@ This is the actual raw output from the fluorometer. The fluorescent activity is 
 <h2 align = "center">
 Name
 </h2>
-This is the name of what is actually in each specific well A1-H10. A description of the names were provided in the background section and can be found below:
+This is the name of what is actually in each specific well A1-H10. A description of the names were mostly provided in the background section and can be found below:
 
 •	Blanks: no venom, negative control (A1, B1, C1, D1)
 
