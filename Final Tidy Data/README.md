@@ -8,7 +8,7 @@ Authors: Abhinandan Chowdhury and Dr. Christina Zdenek, working in the group of 
 
 Location: University of Queensland, QLD Australia
 
-This is a csv file that shows the actual fluorescent activity readings taken by a fluorometer, likely in relative fluorescent units*, of each of the liquids in their specific well positions at all 300 time points of measurments taken. This data is 4 columns of 22800 oservations, or better known as the time point data for each of the 76 well locations across the 300 time points. Every single specific well is grouped together with all of its time data in order. This is described in four columns:
+This is a csv file that shows the actual fluorescent activity readings taken by a fluorometer, likely in relative fluorescent units*, of each of the liquids in their specific well positions at all 300 time points* of measurments taken. This data is 4 columns of 22800 oservations, or better known as the time point data for each of the 76 well locations across the 300 time points. Every single specific well is grouped together with all of its time data in order. This is described in four columns:
 
 <h2 align = "center">
 Time
@@ -67,5 +67,7 @@ Uncertainties*
 - The relative fluorescent units was assumed due to the nature of the data having negative values
   
 - The description of "FX" was not in the original overview of the data and was assumed based on the descriptions in the overview of the data
+
+- units and time between readings is unknown
 
 Any questions regarding these specifics should be placed to the authors of the original raw data and background information
