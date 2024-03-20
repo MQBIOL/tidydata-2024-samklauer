@@ -15,7 +15,7 @@ Venom_start<- function(csvTitle) {
   z <- z%>%
     select(-contains("X."))
   colnames(z)[1]<- 'Time'
-  z <- z[rowSums(is.na(z))!=ncol(z),] #possibly alter
+  z <- z[rowSums(is.na(z))!=ncol(z),]
   return(z)
 }
 
