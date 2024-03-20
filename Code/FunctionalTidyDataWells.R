@@ -140,7 +140,7 @@ Final_join <- function(csvTitle1, csvTitle2){
 #Use the final function to take in the two original datasets and output the tidy
 #combined dataset in csv format
 Tidy_dataset <- Final_join(
-  "/Users/samklauer/Documents/GitHub/tidydata-2024-samklauer/Data/210309_flourometer_readings.csv",
-  '/Users/samklauer/Documents/GitHub/tidydata-2024-samklauer/Data/210309__Experiment_PlateLayout.xlsx'
+  "~/GitHub/tidydata-2024-samklauer/Raw Data/210309_flourometer_readings.csv",
+  '~/GitHub/tidydata-2024-samklauer/Raw Data/210309__Experiment_PlateLayout.xlsx'
   )  
 write.csv(Tidy_dataset, "Snake_Venom_Assay.csv")
