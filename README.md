@@ -8,7 +8,7 @@ Contains R code for tidying snake venom data
 Aims and Folder Descriptions
 </h2>
 
-This is a project in QBIO7006 at UQ in which I take in an untidy csv and xlsx file and tidy them and produce a tidy csv file. The raw data input along with its metadata is found within the "Raw Data" folder. The code to tidy this and similar data is found in the "Code" folder. The output file along with its metadata is found in the "Final Tiday Data" folder. This code is designed to work on any protein activity assay data of any size in which the data takes the form of the raw data in the "Raw Data" folder (metadata found in the readme in that folder).
+This is a project in QBIO7006 at UQ in which I take in an untidy csv and xlsx file and tidy them and produce a tidy csv file. The raw data input along with its metadata is found within the "Raw Data" folder. The code to tidy this and similar data is found in the "Code" folder. The output file along with its metadata is found in the "Final Tidy Data" folder. This code is designed to work on any protein activity assay data of any size in which the data takes the form of the raw data in the "Raw Data" folder (metadata found in the readme in that folder).
 
 <h2 align = "center">
 Dependencies
