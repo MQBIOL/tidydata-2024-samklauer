@@ -30,7 +30,7 @@ time<- function(z) {
 }
 
 
-#This function creates a list of the location of every single starting time in the data.
+#This function creates a list of the row number of every single starting time in the data.
 #This will also be used later to separate and tidy the data
 
 M1finder <- function(z){
@@ -76,9 +76,11 @@ wide_venom <- function(csvTitle){
 
 
 #This function uses the wide_venom function and M1finder function in order to 
-#adjust the columnn names to what we want before final tidying steps. It then uses 
+#adjust the column names to what we want before final tidying steps. It then uses 
 #stringi to remove any unwanted characters in the column names. Lastly, it uses
 #gsub so that the M's are removed from all values of our time column.
+#This function's purpose is to organize the data so that after tidying,
+#no renaming needs to occur. 
 
 correct_col <- function(csvTitle){
   dat <- wide_venom(csvTitle)
@@ -148,4 +150,4 @@ Tidy_dataset <- Final_join(
   "Raw Data/210309_flourometer_readings.csv",
   'Raw Data/210309__Experiment_PlateLayout.xlsx'
   )  
-write.csv(Tidy_dataset, "Snake_Venom_Assay.csv")
+write.csv(Tidy_dataset, "Final Tidy Data/Snake_Venom_Assay.csv")
