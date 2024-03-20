@@ -2,11 +2,38 @@
 Tidying of Snake Venom Assay Data
 </h1>
 
+Contains R code for tidying snake venom data
+
 <h2 align = "center">
 Aims and Folder Descriptions
 </h2>
 
-This is a project in QBIO7006 at UQ in which I take in an untidy csv and xlsx file and tidy them and produce a tidy csv file. The raw data input along with its metadata is found within the "Raw Data" folder. The code to tidy this and similar data is found in the "Code" folder. The output file is found in the "Final Tiday Data" folder. This code is designed to work on any protein activity assay data of any size in which the data takes the form of the raw data in the "Raw Data" folder (metadata found in the readme in that folder).
+This is a project in QBIO7006 at UQ in which I take in an untidy csv and xlsx file and tidy them and produce a tidy csv file. The raw data input along with its metadata is found within the "Raw Data" folder. The code to tidy this and similar data is found in the "Code" folder. The output file along with its metadata is found in the "Final Tiday Data" folder. This code is designed to work on any protein activity assay data of any size in which the data takes the form of the raw data in the "Raw Data" folder (metadata found in the readme in that folder).
+
+<h2 align = "center">
+Dependencies
+</h2>
+
+R version 4.3.2 (2023-10-31) was used for all code contained within this repository 
+
+Install the following R packages if they are not on your system:
+
+• tidyverse
+
+• dplyr
+
+• stringi
+
+• readxl
+
+You can install them with the code below:
+
+```{r}
+install.packages(tidyverse)
+install.packages(dplyr)
+install.packages(stringi)
+install.packages(readxl)
+```
 
 <h2 align = "center">
 Background
@@ -30,3 +57,11 @@ A typical experimental design includes:
 
 Acknowledgments: Data and information from Abhinandan Chowdhury and Dr. Christina Zdenek, working in the group of A/Prof Bryan Fry "
 
+<h2 align = "center">
+Authors
+</h2>
+The raw data and background information was provided by Abhinandan Chowdhury and Dr. Christina Zdenek, working in the group of A/Prof Bryan Fry. 
+
+The repository and all code was written by:
+
+Sam Klauer https://github.com/samklauer
