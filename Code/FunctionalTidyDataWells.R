@@ -28,7 +28,7 @@ time<- function(z) {
   sample<- length(samples)
   return(length(samples))
 }
-time(venom_data)
+#time(venom_data)
 
 #This creates a list of the location of every single starting time in the data
 
@@ -44,8 +44,8 @@ M1finder <- function(z){
   }
   return(M1list)
 }
-M1 <- M1finder(venom_data)
-as.numeric(M1[[1]])
+#M1 <- M1finder(venom_data)
+#as.numeric(M1[[1]])
 
 # This function takes our starting time and total samples functions and 
 #manipulates our data into a longer format where new columns that are each 
