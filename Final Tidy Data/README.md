@@ -31,20 +31,31 @@ Name
 This is the name of what is actually in each specific well A1-H10. A description of the names were provided in the background section and can be found below:
 
 •	Blanks: no venom, negative control (A1, B1, C1, D1)
+
 •	Activated factors: “FX activated factor”, a positive control, labelled as "FXA" (A2, B2, C2, D2)
+
 •	* Inactive Factors: "FX" (E2, F2, G2, H2)
+
 •	Experimental wells: venom + FX
+
 •	Venom only: gives the baseline florescent of the venom
 
 In both the experimental wells (E3:H10) and the venom only wells (A3:D10) the venom in each are as follows (X indicating any letter):
 
 •	X3: V. ammo
+
 •	X4: V.a. meri
+
 •	X5: V. aspis
+
 •	X6: V.berus
+
 •	X7: V. kaza
+
 •	X8: V.lat.gad
+
 •	X9: V. renardi
+
 •	X10: M.l.turan
 
 *This description of "FX" was not in the original overview of the data and was assumed based on the descriptions in the overview of the data, any questions regarding this should be placed to the original authors
